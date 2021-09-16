@@ -4,8 +4,9 @@ public class Intro {
 
 	public void start() {
 		// TODO Auto-generated method stub
+		System.out.println("Welcome to BOP IT!");
 		while (true) {
-			System.out.println("Welcome to BOP IT!");
+			
 			Scanner in = new Scanner(System.in);
 			System.out.println("To play: Before time runs out, when the character is"
 					+ " displayed on the screen,\n quickly press the same character "

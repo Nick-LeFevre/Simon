@@ -11,18 +11,30 @@ public class GameDriver {
 		Scanner in = new Scanner(System.in);
 		GenChar gen = new GenChar();
 		boolean go = true;
-		Timer time = new Timer();
-		int round = 0;
+		double start;
+		double end;
+//		Timer time = new Timer();
+		int score = 0;
 		while (go) {
 			char next = gen.generate();
 			System.out.println("\n" + next + "\n");
-			boolean timer = true;
-			timer = time.Time(round);
+//			boolean timer = true;
+//			timer = time.Time(round);
+			start = System.currentTimeMillis()/1000;
 			String enter = in.next().toUpperCase();
-			if (enter.charAt(0) == next) {
+			end = System.currentTimeMillis()/1000;
+			//since you would not answer add what ever calculation you want to this for faster times
+			//current time to answer is 2 sec
+			
+			if (enter.charAt(0) == next && (end-start)<2) {
+				score++;
 				continue;
 			} else {
+				if((end-start)>=2) {
+					System.out.println("You ran out of time!");
+				}
 				System.out.println("GAME OVER!");
+				System.out.println("Your score was : "+ score);
 				go = false;
 			}
 		}
