@@ -13,6 +13,7 @@ public class GameDriver {
 		boolean go = true;
 		double start;
 		double end;
+		double maxtime = 2.0;
 //		Timer time = new Timer();
 		int score = 0;
 		while (go) {
@@ -25,12 +26,12 @@ public class GameDriver {
 			end = System.currentTimeMillis()/1000;
 			//since you would not answer add what ever calculation you want to this for faster times
 			//current time to answer is 2 sec
-			
-			if (enter.charAt(0) == next && (end-start)<2) {
+			if (enter.charAt(0) == next && (end-start)<maxtime) {
 				score++;
+				maxtime= maxtime-.01;
 				continue;
 			} else {
-				if((end-start)>=2) {
+				if((end-start)>=maxtime) {
 					System.out.println("You ran out of time!");
 				}
 				System.out.println("GAME OVER!");
